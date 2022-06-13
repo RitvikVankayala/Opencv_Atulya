@@ -47,6 +47,16 @@ In this function the task image is passed as parameter.We use **findcontours()**
 
 ### Extraction -
   
+  This function helps in wrapping the square boxes from the task image.Here we will give image and coordinates as the parameters.We make a transformation matrix using the function **getPerspectiveTransform()** function. We will give the reference points for the wrapped imaged on which it has to be oriented.using **wrapPerspective()** we will get an new image in which the square is wrapped.We return this image in this function.
 
+### Overlapping_img-
+    
+   This function helps in overlapping the prey image on to the host image.We will give host and prey images as the parameters.Firstly we calculate the size of the host that is width height and channels using **shape()**. Then we will resize the prey image to the host's width and the height using **resize()** function.Later we overlap entire prey on to the host.
 
-
+### Inversetransform-
+   
+   This function will help in the dewrapping the image that is replacing the wrapped image into its old position after all neccessary operations are done on wrapped image.It is exact opposite of extraction.Host,prey,boundaryrectangle and transformation points are passed as parameters in the function.The process is same except the the order of parameters in the **getPerspectiveTransform()** and **wrapPerspective()**.
+    
+  BY USING THESE FUNCTION AND PASSING THE CVtask IMAGE IT WILL RETURN THE FINAL IMAGE ON WHICH THE MARKERS ARE ATTACHED AT THE SPECIFIED COLOURED BOXES.
+  
+ A loop is used to traverse accross the id's of the markers in which at each index the extracted (**extraction()**) image of the markers will be alloted in the id's list.Later all the squares are detected from the task image using **detected_squares()** function.Later a loop will be runned for all 4 squares in which the squares from the task image is extracted using **extraction** function.We will append them in an empty list.Now the colour detection will be checked using **colour_detection()** function.Then we append all overlapping images and unwrapped images into two empty lists using **overlapping_img()** and **inverse_transformation()** respectively.Now finally we pass list of unwrapped images into **overlapping** function and then make a copy of that and display using **imshow()** function.
