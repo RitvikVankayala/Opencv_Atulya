@@ -43,7 +43,10 @@ In this function the task image is passed as parameter.We use **findcontours()**
   
   This can be done using the aruco generator as the given markers are of dimension 5*5 so on giving the 5*5 as dimension in generator and mentioning the id's it gives the respective aruco markers.
 
-## PASTING THE ARUCO MARKERS ON THE SPECIFIED COLOURED SQUARE BOXES-
+## PASTING THE ARUCO MARKERS ON THE SPECIFIED COLOURED SQUARES-
+
+### Extraction -
+  
 
 
 
